@@ -5,7 +5,11 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+
+// Import routers
 const indexRouter = require('./routes/index');
+const categoryRouter = require('./routes/categoryRoute');
+const itemRouter = require('./routes/itemRoute');
 
 const app = express();
 
@@ -30,6 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist/')));
 
 app.use('/', indexRouter);
+app.use('/item', itemRouter);
+app.use('/category', categoryRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
