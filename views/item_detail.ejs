@@ -31,7 +31,9 @@
         <%= item.description %>
       </p>
       <p class="fs-5">
-        Category: <%= item.category.name %>
+        Category: <a href="<%= item.category.url %>">
+          <%= item.category.name %>
+        </a>
       </p>
       <p class="fs-5">Price: <%= item.price.toFixed(2) %>
       </p>
