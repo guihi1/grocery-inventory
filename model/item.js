@@ -14,7 +14,7 @@ const ItemSchema = new Schema(
     virtuals: {
       url: {
         get() {
-          return `/items/${this._id}`;
+          return `/item/${this._id}`;
         },
       },
     },
