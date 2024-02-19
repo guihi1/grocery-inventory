@@ -1,7 +1,12 @@
 const express = require('express');
+const path = require('path');
 
 const router = express.Router();
 const itemController = require('../controllers/itemController');
+
+router.use(
+  express.static(path.join(__dirname, '../node_modules/bootstrap/dist/'))
+);
 
 // GET request for creating a item. NOTE This must come before routes that display item (uses id).
 router.get('/create', itemController.item_create_get);

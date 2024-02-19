@@ -1,7 +1,12 @@
 const express = require('express');
+const path = require('path');
 
 const router = express.Router();
 const categoryController = require('../controllers/categoryController');
+
+router.use(
+  express.static(path.join(__dirname, '../node_modules/bootstrap/dist/'))
+);
 
 // GET request for creating a category. NOTE This must come before routes that display category (uses id).
 router.get('/create', categoryController.category_create_get);
