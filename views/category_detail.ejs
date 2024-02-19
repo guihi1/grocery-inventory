@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <title>
+    <%= category.name %>
+  </title>
+</head>
+
+<body class="m-0 p-0" data-bs-theme="dark">
+  <%- include("header") -%>
+    <div class="container">
+      <nav class="mt-4 mb-2" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/category">Category</a></li>
+          <li class="breadcrumb-item">
+            <%= category.name %>
+          </li>
+        </ol>
+      </nav>
+      <h1>
+        <%= category.name %>
+      </h1>
+      <p class="fs-5">
+        <%= category.description %>
+      </p>
+      <div class="d-flex flex-column mb-4 gap-3">
+        <% items.forEach((item)=> {%>
+          <div class="card">
+            <div class="card-body">
+              <p class="fs-4 card-title">
+                <%= item.name %>
+              </p>
+              <p class="fs-5 card-text">
+                <%= item.description %>
+              </p>
+              <a class="btn btn-secondary" href="<%= item.url %>">View Item</a>
+            </div>
+          </div>
+          <% }); %>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary">
+          <a class="text-decoration-none link-light" href="<%= category.url %>/update">Update Category</a>
+        </button>
+        <button type="button" class="btn btn-primary">
+          <a class="text-decoration-none link-light" href="<%= category.url %>/delete">
+            Delete category</a>
+        </button>
+      </div>
+    </div>
+</body>
+
+</html>
