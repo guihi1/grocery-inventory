@@ -9,7 +9,7 @@ exports.item_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific item.
 exports.item_detail = asyncHandler(async (req, res, next) => {
-  const item = await Item.findById(req.params.id).exec();
+  const item = await Item.findById(req.params.id).populate('category').exec();
   res.render('item_detail', { item });
 });
 
