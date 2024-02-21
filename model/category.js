@@ -11,7 +11,7 @@ const CategorySchema = new Schema(
     virtuals: {
       url: {
         get() {
-          return `/items/${this._id}`;
+          return `/category/${this._id}`;
         },
       },
     },
