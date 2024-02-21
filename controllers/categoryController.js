@@ -64,15 +64,17 @@ exports.category_create_post = [
   },
 ];
 
-// Display category delete form on GET.
-exports.category_delete_get = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: category delete GET');
-});
-
 // Handle category delete on POST.
-exports.category_delete_post = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: category delete POST');
-});
+exports.category_delete_post = [
+  body('password').trim().escape(),
+
+  asyncHandler(async (req, res, next) => {
+    if (req.body.password === process.env.PASSWORD) {
+      await Category.findByIdAndDelete(req.params.id).exec();
+    }
+    res.redirect('/category');
+  }),
+];
 
 // Display category update form on GET.
 exports.category_update_get = asyncHandler(async (req, res, next) => {

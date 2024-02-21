@@ -49,11 +49,11 @@
         <button type="button" class="btn btn-primary">
           <a class="text-decoration-none link-light" href="<%= category.url %>/update">Update Category</a>
         </button>
-        <button type="button" class="btn btn-primary">
-          <a class="text-decoration-none link-light" href="<%= category.url %>/delete">
-            Delete category</a>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete">
+          Delete category
         </button>
       </div>
+      <%- include("category_delete") -%>
     </div>
 </body>
 

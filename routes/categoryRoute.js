@@ -14,12 +14,6 @@ router.get('/create', categoryController.category_create_get);
 // POST request for creating category.
 router.post('/create', categoryController.category_create_post);
 
-// GET request to delete category.
-router.get('/:id/delete', categoryController.category_delete_get);
-
-// POST request to delete category.
-router.post('/:id/delete', categoryController.category_delete_post);
-
 // GET request to update category.
 router.get('/:id/update', categoryController.category_update_get);
 
@@ -28,6 +22,9 @@ router.post('/:id/update', categoryController.category_update_post);
 
 // GET request for one category.
 router.get('/:id', categoryController.category_detail);
+
+// POST request to delete category.
+router.post('/:id', categoryController.category_delete_post);
 
 // GET request for list of all categories.
 router.get('/', categoryController.category_list);
