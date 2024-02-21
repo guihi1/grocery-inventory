@@ -1,0 +1,23 @@
+<div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete <%= item.name %></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST">
+        <div class="modal-body">
+          <p>Are you sure you want to delete this item?</p>
+          <p>You need to enter the password below to delete an item:</p>
+          <label for="pw">Password</label>
+          <input type="password" id="pw" name="password" class="form-control" />
+          <p>*You will be redirected to the item page without the item being deleted if the password is incorrect</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -62,15 +62,17 @@ exports.item_create_post = [
   }),
 ];
 
-// Display item delete form on GET.
-exports.item_delete_get = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: item delete GET');
-});
-
 // Handle item delete on POST.
-exports.item_delete_post = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: item delete POST');
-});
+exports.item_delete_post = [
+  body('password').trim().escape(),
+
+  asyncHandler(async (req, res, next) => {
+    if (req.body.password === process.env.PASSWORD) {
+      await Item.findByIdAndDelete(req.params.id).exec();
+    }
+    res.redirect('/item');
+  }),
+];
 
 // Display item update form on GET.
 exports.item_update_get = asyncHandler(async (req, res, next) => {
