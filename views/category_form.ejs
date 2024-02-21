@@ -35,8 +35,8 @@
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <textarea name="description" id="description" placeholder="Category description" rows="3" class="form-control"
-            value="<%= locals.category === undefined ? '' : category.description %>" required /></textarea>
+          <input type="text" name="description" id="description" placeholder="Category description" class="form-control"
+            value="<%= locals.category === undefined ? '' : category.description %>" required />
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
