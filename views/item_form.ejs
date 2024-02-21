@@ -19,7 +19,9 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
           <li class="breadcrumb-item"><a href="/item">Item</a></li>
-          <li class="breadcrumb-item">Add Item</li>
+          <li class="breadcrumb-item">
+            <%= title %>
+          </li>
         </ol>
       </nav>
       <h1>
@@ -28,8 +30,8 @@
       <form method="POST">
         <div class="row">
           <div class="col-md-6 mb-2">
-            <label for="name" class="form-label" placeholder="Name of item">Name</label>
-            <input class="form-control" type="text" name="name" id="category" placeholder="Item name"
+            <label for="name" class="form-label">Name</label>
+            <input class="form-control" type="text" name="name" id="name" placeholder="Item name"
               value="<%= locals.item === undefined ? '' : item.name %>" required />
           </div>
           <div class="col-md-6 mb-2">
@@ -59,12 +61,12 @@
               value="<%= locals.item === undefined ? '' : item.description %>" required /></textarea>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="" class="form-label">Price</label>
+            <label for="price" class="form-label">Price</label>
             <input class="form-control" value="<%= locals.item === undefined ? '' : item.price %>" type="number"
               id="price" name="price" placeholder="Enter the item price here" required>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="" class="form-label">Number in stock</label>
+            <label for="stock" class="form-label">Number in stock</label>
             <input class="form-control" value="<%= locals.item === undefined ? '' : item.stock %>" type="number"
               id="stock" name="stock" placeholder="Enter how many items there are in stock here" required>
           </div>
