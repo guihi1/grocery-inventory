@@ -42,6 +42,9 @@ exports.category_create_post = [
     .trim()
     .isLength({ min: 5 })
     .escape(),
+  body('password', 'Wrong password.').custom(
+    (value) => value === process.env.PASSWORD
+  ),
 
   async (req, res, next) => {
     const errors = validationResult(req);
@@ -93,6 +96,9 @@ exports.category_update_post = [
     .trim()
     .isLength({ min: 5 })
     .escape(),
+  body('password', 'Wrong password.').custom(
+    (value) => value === process.env.PASSWORD
+  ),
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);

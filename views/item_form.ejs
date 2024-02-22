@@ -75,6 +75,11 @@
             <input class="form-control" value="<%= locals.item === undefined ? '' : item.stock %>" type="number"
               id="stock" name="stock" placeholder="Enter how many items there are in stock here" required>
           </div>
+          <div class="col-md-6 mb-3">
+            <p>A password needs to be entered to conclude this action: </p>
+            <label for="pw" class="form-label">Password</label>
+            <input class="form-control" type="password" id="pw" name="password" placeholder="Enter the password here">
+          </div>
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>

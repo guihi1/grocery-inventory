@@ -35,6 +35,9 @@ exports.item_create_post = [
   body('price', 'Invalid price.').trim().isNumeric(),
   body('category', 'Category must not be empty.').trim().notEmpty().escape(),
   body('stock', 'Must be a number.').trim().isNumeric(),
+  body('password', 'Wrong password.').custom(
+    (value) => value === process.env.PASSWORD
+  ),
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
@@ -101,6 +104,9 @@ exports.item_update_post = [
   body('price', 'Invalid price.').trim().isNumeric(),
   body('category', 'Category must not be empty.').trim().notEmpty().escape(),
   body('stock', 'Must be a number.').trim().isNumeric(),
+  body('password', 'Wrong password.').custom(
+    (value) => value === process.env.PASSWORD
+  ),
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
