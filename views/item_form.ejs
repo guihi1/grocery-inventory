@@ -24,12 +24,14 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
           <li class="breadcrumb-item"><a href="/item">Item</a></li>
-          <li class="breadcrumb-item"><a href="/item/<%= item._id %>">
-              <%= item.name %>
-            </a></li>
-          <li class="breadcrumb-item">
-            <%= title %>
-          </li>
+          <% if (locals.title==="Update Item" ) { %>
+            <li class="breadcrumb-item"><a href="/item/<%= item._id %>">
+                <%= item.name %>
+              </a></li>
+            <% } %>
+              <li class="breadcrumb-item">
+                <%= title %>
+              </li>
         </ol>
       </nav>
       <h1>
